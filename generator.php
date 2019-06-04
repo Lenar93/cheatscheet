@@ -21,6 +21,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 
 </head>
 
@@ -55,7 +57,7 @@
                 <div class="container-fluid">
                     <h1>Generator instrukcji</h1>
                     <b><a id="returndata" class="link" href="/">Wczytaj dane z poprzedniej sesji</a></b><br>
-                    <b><a id="clearData" class="link" href="/">Wyczyść dane z poprzedniej sesji</a></b>
+                    <b><a id="clearData" class="link" href="/" style="color:red;">Wyczyść dane z poprzedniej sesji</a></b>
                     <div class="content_wrapper">
                         <div class="maincont_left">
                             <small>01</small>
@@ -73,14 +75,8 @@
                                 <small>03</small>
                                 <button class="btn gen" data-clipboard-action="copy" data-clipboard-target="#copycat">Generuj instrukcję</button>
                                 <div class="status2 status_layout"></div>
-
-                               
-                                <textarea class="global_code" id="copycat">        </textarea>
+                                <textarea class="global_code" id="copycat"></textarea>
                                 <br>
-                               
-
-                              
-                        
                             </div>
                         </div>
                     </div>
@@ -132,21 +128,24 @@
     </div>
 
     <style>
-        .src1{
+        .src1 {
             display: none;
         }
-        .target{
+
+        .target {
             display: block;
             width: 100% !important;
             height: 200px !important;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            border:2px solid #eee;
+            border: 2px solid #eee;
         }
-        .target.active{
+
+        .target.active {
             box-shadow: 0 0 5px 5px #eee;
         }
+
         small {
             display: block;
             font-weight: bold;
@@ -179,11 +178,12 @@
             font-size: 20px;
             background: #f00;
             color: #fff;
-            border:1px solid #f00;
-        
+            border: 1px solid #f00;
+
 
         }
-        .gen:hover{
+
+        .gen:hover {
             background: transparent;
             color: #000;
         }
@@ -11842,8 +11842,8 @@
                                         </div>\
                                     </div>';
             global_array['opis2_section'] = '<label>Nagłówek:</label><input type="text" class="label" placeholder="Nagłówek"></input><label>Ścieżka do pliku oraz nazwa:</label><div class="span4 target contain" style="z-index: 10;"></div><textarea type="text" class="src1"></textarea></input><label>Opis:</label><textarea type="text" class="opis" placeholder="Opis"></textarea><label>Link do strefy:</label><input type="text" class="link" placeholder="Link do strefy"></input>';
-            
-//              global_array['opis2_section'] = '<label>Nagłówek:</label><input type="text" class="label" placeholder="Nagłówek"></input><label>Ścieżka do pliku oraz nazwa:</label><input type="text" class="src1"  placeholder="Nazwa pliku z obrazkiem..."></input><label>Opis:</label><textarea type="text" class="opis" placeholder="Opis"></textarea><label>Link do strefy:</label><input type="text" class="link" placeholder="Link do strefy"></input>';
+
+            //              global_array['opis2_section'] = '<label>Nagłówek:</label><input type="text" class="label" placeholder="Nagłówek"></input><label>Ścieżka do pliku oraz nazwa:</label><input type="text" class="src1"  placeholder="Nazwa pliku z obrazkiem..."></input><label>Opis:</label><textarea type="text" class="opis" placeholder="Opis"></textarea><label>Link do strefy:</label><input type="text" class="link" placeholder="Link do strefy"></input>';
 
 
 
@@ -11858,8 +11858,8 @@
                         $('section[data-num="' + num + '"').remove();
                     });
 
-//                    var dirname = '/data/include/cms/instrukcja/';
-//                    $('section[data-num="' + global_cont + '"').find('.src1').val(dirname);
+                    //                    var dirname = '/data/include/cms/instrukcja/';
+                    //                    $('section[data-num="' + global_cont + '"').find('.src1').val(dirname);
 
 
                     global_cont++;
@@ -11872,7 +11872,7 @@
 
             /////
 
-            var css = '<style>body {margin: 0;font-size: 14px;font-family: Arial;font-weight: 400;color: #333;max-width: 1000px;margin: 0 auto;}aside {width: 20%;position: fixed;left: 0;top: 0;}aside.instruction_wrapper label {display: block;font-size: 16px;text-transform: uppercase;font-weight: bold;margin-bottom: 10px;}.instruction_links a:hover {padding-left: 10px;}.instruction_links a {color: #333;display: block;text-decoration: none;padding: 5px 0;transition: all .3s;}.product_desc {width: 80%;float: right;text-align: center;}.product_desc_item {margin-bottom: 50px;padding-bottom: 50px;border-bottom: 2px solid #333;}img {max-width: 100%;}.product_desc_item {margin: 0 0 50px;}.product_desc_item label {display: block;padding: 20px 0 0;font-size: 16px;text-transform: uppercase;}.product_desc_txt {margin: 15px 0 50px;font-style: italic;font-size: 15px;}.btn:hover {background: #fff;border: 1px solid #333333;color: #000;}.number {border-radius: 100%;color: #fff;background: #ff9432;width: 30px;height: 30px;line-height: 30px;display: inline-block;margin-right: 10px;}.btn {display: block;width: 300px;text-align: center;margin: 20px auto;color: #fff;background: #000;border: 1px solid #000;text-decoration: none;padding: 12px 0;font-size: 1.15em;border-radius: 22px;transition: all .2s;}.product_desc_item h3 {text-transform: uppercase;padding: 25px 0;display: block;font-weight: 600;font-size: 24px;} .product_desc_item .label{padding: 40px 0 0px;display: block;font-weight: 600;}</style>';
+            var css = '<style>body {margin: 0;font-size: 14px;font-family: Arial;font-weight: 400;color: #333;max-width: 1000px;margin: 0 auto;}aside {width: 20%;position: fixed;left: 0;top: 0;}aside.instruction_wrapper label {display: block;font-size: 16px;text-transform: uppercase;font-weight: bold;margin-bottom: 10px;}.instruction_links a:hover {padding-left: 10px;}.instruction_links a {color: #333;display: block;text-decoration: none;padding: 5px 0;transition: all .3s;}.product_desc {width: 80%;float: right;text-align: center;}.product_desc_item {margin-bottom: 50px;padding-bottom: 50px;border-bottom: 2px solid #333;}img {max-width: 100%;}.product_desc_item {margin: 0 0 50px;}.product_desc_item label {display: block;padding: 20px 0 0;font-size: 16px;text-transform: uppercase;}.product_desc_txt {margin: 15px 0 50px;font-style: italic;font-size: 15px;}.btn:hover {background: #fff;border: 1px solid #333333;color: #000;}.number {border-radius: 100%;color: #fff;background: #ff9432;width: 30px;height: 30px;line-height: 30px;display: inline-block;margin-right: 10px;}.btn {display: block;width: 300px;text-align: center;margin: 20px auto;color: #fff;background: #000;border: 1px solid #000;text-decoration: none;padding: 12px 0;font-size: 1.15em;border-radius: 22px;transition: all .2s;}.product_desc_item h3 {text-transform: uppercase;padding: 25px 0;display: block;font-weight: 600;font-size: 24px;} .product_desc_item .label{padding: 40px 0 0px;display: block;font-weight: 600;}[href=""]{display:none;}.instruction_wrapper{padding-left:15px; padding-right:15px;}</style>';
 
             $('.gen').on('click', function() {
                 $('.global_code').val('');
@@ -11890,7 +11890,7 @@
 
                     for (n in elem) {
                         var val = obj.find('.' + elem[n]).val();
-                        if(elem[n] == 'src1'){
+                        if (elem[n] == 'src1') {
                             val = val.replace('\"', '');
                         }
                         result = result.replace('[' + elem[n] + ']', val);
@@ -11912,11 +11912,12 @@
 
                 $('.status2').show().html('Skopiowano do schowka');
             });
-            
-            function saveTextAsFile()
-            {
+
+            function saveTextAsFile() {
                 var textToSave = $('.global_code').val();
-                var textToSaveAsBlob = new Blob([textToSave], {type:"text/html"});
+                var textToSaveAsBlob = new Blob([textToSave], {
+                    type: "text/html"
+                });
                 var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
                 var fileNameToSaveAs = 'instrukcja.html';
 
@@ -11931,8 +11932,7 @@
                 downloadLink.click();
             }
 
-            function destroyClickedElement(event)
-            {
+            function destroyClickedElement(event) {
                 document.body.removeChild(event.target);
             }
 
@@ -11980,11 +11980,15 @@
             }
 
             function clearData() {
-                if (confirm('Czy usunąć poprzednie dane?')) {
+            if (confirm('Czy usunąć poprzednie dane?')) {
+                if (confirm('Dominik napewno usunąć poprzednie dane?')) {
                     localStorage.clear();
                 } else {
-                    // Do nothing!
+                // Do nothing!
                 }
+            } else {
+            // Do nothing!
+            }
 
             }
 
@@ -11995,7 +11999,13 @@
                     $('.opis2').click();
                     $('[data-num="' + i + '"]').each(function() {
                         $(this).find('input,textarea').each(function(index) {
+
                             $(this).val(item.elements[index]);
+                            if (index == 1) {
+                                $(this).parents('.section_desc').find('.target').css({
+                                    backgroundImage: "url(" + item.elements[index].replace('\"', '') + ")"
+                                })
+                            }
                         })
                     })
 
@@ -12088,7 +12098,7 @@
                                     });
                                 };
                                 reader.readAsDataURL(file);
-                                
+
                                 return (found = true);
                             }
                         });
@@ -12100,8 +12110,10 @@
         var dataURL, filename;
         $("html").pasteImageReader(function(results) {
             filename = results.filename, dataURL = results.dataURL;
+            console.log(dataURL);
+            console.log('testowe');
             $data = $('.target.active').parents('.section_desc').find('.src1');
-            $data.text(dataURL);
+            $data.val(dataURL);
             $size.val(results.file.size);
             $type.val(results.file.type);
             var img = document.createElement("img");
@@ -12122,6 +12134,13 @@
 
         var $data, $size, $type, $width, $height;
         $(function() {
+             $( function() {
+                $( ".contener" ).sortable({
+                  placeholder: "ui-state-highlight"
+                });
+                $( ".contener" ).disableSelection();
+              } );
+            
             $data = $('.target.active').parents('.section_desc');
             $size = $(".size");
             $type = $(".type");
@@ -12155,6 +12174,7 @@
                     });
                 }
             });
+            
         });
 
         function copy(text) {
@@ -12181,6 +12201,9 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+<!--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

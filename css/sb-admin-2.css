@@ -12012,5 +12012,10 @@ body.sidebar-toggled footer.sticky-footer {
 .card-body{
     padding: 0;
 }
-
+.syntaxhighlighter{
+    max-height: 300px;
+}
+pre{
+    display: none;
+}
 

@@ -73,16 +73,44 @@
                                     </pre>
                                 </div>
                             </div>
+                            
+                             <div class="card mb-4">
+                                <div class="card-header">
+                                    Stylowanie scroll
+                                </div>
+                                <div class="card-body">
+                                    <pre class="brush:css">
+                                        .less_scrollbar(@color: @secondary_color, @bg_color: #fff) {
+                                            scrollbar-color: @color @bg_color;
+                                            scrollbar-width: thin;
+                                            &::-webkit-scrollbar-track
+                                            {
+                                                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                                                background-color: @bg_color;
+                                            }
+                                            &::-webkit-scrollbar
+                                            {
+                                                width: 6px;
+                                                background-color: @bg_color;
+                                            }
+                                            &::-webkit-scrollbar-thumb
+                                            {
+                                                background-color: @color;
+                                            }
+                                        }
+                                    </pre>
+                                </div>
+                            </div>
 
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    Default Card Example
+                                    Media query css
                                 </div>
                                 <div class="card-body">
                                     <pre class="brush:css">
                                         @tablet: ~"only screen and (max-width: 979px)";
                                         @mobile: ~"only screen and (max-width: 757px)";
-                                        @small-mobile: ~"only screen and (max-width: 500px)";
+                                        @small_mobile: ~"only screen and (max-width: 500px)";
                                         @laptop: ~"only screen and (max-width: 1200px)";
                                         @desktop: ~"only screen and (max-width: 1500px)";
                                     </pre>
@@ -95,28 +123,97 @@
                             <!-- Default Card Example -->
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    Default Card Example
+                                    Nazewnictwo less
                                 </div>
                                 <div class="card-body">
-                                    <pre class="brush:js">
-                                    This card uses Bootstrap's default styling with
-                                    no utility classes added. Global styles are the only
-                                    things modifying the look and feel
-                                    of this default card example.
+                                    <pre class="brush:css">
+                                    @primary_color: #000;                        //kolor głowny
+                                    @secondary_color: #fff;                      //kolor poboczny
+                                    @third_color: #000;                          //kolor dodatkowy
+                                
+                                    @text_color: #333                            //kolor tekstu
+                                    @button_text_color: #333;                    //kolor tekstu na buttonie
+                                    @button_text_color_hover: #333;              //kolor tekstu na buttonie po hover
+                                    
+                                    @border_color : #333;                        //kolor border'a
+                                    @border_radius: 7px;                         //border radius
                                     </pre>
                                 </div>
                             </div>
 
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    Default Card Example
+                                    Przypisywanie kolorów
                                 </div>
                                 <div class="card-body">
                                     <pre class="brush:css">
-                                    This card uses Bootstrap's default styling 
-                                    with no utility classes added. Global 
-                                    styles are the only things modifying the look 
-                                    and feel of this default card example.
+                                        @less_info_color: @less_iaicolorscheme_info_color;
+                                        @less_success_color: @less_iaicolorscheme_success_color;
+                                        @less_danger_color: @less_iaicolorscheme_danger_color;
+                                        @less_primary_color: @less_iaicolorscheme_primary_color;
+                                        @less_gray_color: @less_iaicolorscheme_gray_color;
+                                        @less_gray_lighter_color: @less_iaicolorscheme_gray_lighter_color;
+                                        @less_gray_darker_color: @less_iaicolorscheme_gray_darker_color;
+                                        @less_text_color: @less_iaicolorscheme_background_text_color;
+                                        @less_link_color: @less_iaicolorscheme_background_link_color;
+                                        @less_link_color_hover: @less_iaicolorscheme_background_link_color_hover;
+                                        @less_warning_color: @less_iaicolorscheme_warning_color;
+                                        @less_iaicolorscheme_background_color: #ffffff;
+                                        @less_iaicolorscheme_background_link_color: @text_color;
+                                        @less_iaicolorscheme_background_link_color_hover: @primary_color;
+                                        @less_iaicolorscheme_background_text_color: @text_color;
+                                        @less_iaicolorscheme_background_border_color: @border_color;
+                                        @less_iaicolorscheme_background_active_color: @primary_color;
+                                        @less_iaicolorscheme_background_alternative_color: @border_color;
+                                        @less_iaicolorscheme_background_alternative_text_color: @text_color;
+                                        @less_iaicolorscheme_background_alternative_link_color: @text_color;
+                                        @less_iaicolorscheme_background_alternative_link_color_hover: @primary_color;
+                                        @less_iaicolorscheme_background_alternative_border_color: @border_color;
+                                        @less_iaicolorscheme_background_alternative_active_color: @primary_color;
+                                        @less_iaicolorscheme_background_mask_color: #ffffff;
+                                        @less_iaicolorscheme_background_mask_text_color: @text_color;
+                                        @less_iaicolorscheme_background_mask_link_color: @text_color;
+                                        @less_iaicolorscheme_background_mask_link_color_hover: @primary_color;
+                                        @less_iaicolorscheme_background_mask_border_color: @border_color;
+                                        @less_iaicolorscheme_background_mask_active_color: @primary_color;
+                                        @less_iaicolorscheme_info_color: @text_color;
+                                        @less_iaicolorscheme_info_color_text: #ffffff;
+                                        @less_iaicolorscheme_success_color_text: #ffffff;
+                                        @less_iaicolorscheme_danger_color_text: #ffffff;
+                                        @less_iaicolorscheme_warning_color_text: #ffffff;
+                                        @less_iaicolorscheme_primary_color_text: @text_color;
+                                        @less_iaicolorscheme_success_color: @primary_color;
+                                        @less_iaicolorscheme_danger_color: #e35c5c;
+                                        @less_iaicolorscheme_warning_color: #f89406;
+                                        @less_iaicolorscheme_primary_color: @text_color;
+                                        @less_iaicolorscheme_gray_color: #999999;
+                                        @less_iaicolorscheme_gray_lighter_color: @border_color;
+                                        @less_iaicolorscheme_gray_darker_color: @text_color;
+                                        @less_iaicolorscheme_button_small_color: @secondary_color;
+                                        @less_iaicolorscheme_button_small_color_hover: @primary_color;
+                                        @less_iaicolorscheme_button_small_text_color: @button_text_color;
+                                        @less_iaicolorscheme_button_small_text_color_hover: @button_text_color_hover;
+                                        @less_iaicolorscheme_button_medium_color: @secondary_color;
+                                        @less_iaicolorscheme_button_medium_hover: @primary_color;
+                                        @less_iaicolorscheme_button_medium_text_color: @button_text_color;
+                                        @less_iaicolorscheme_button_medium_text_hover: @button_text_color_hover;
+                                        @less_iaicolorscheme_button_large_color: @secondary_color;
+                                        @less_iaicolorscheme_button_large_hover: @primary_color;
+                                        @less_iaicolorscheme_button_large_text_color: @button_text_color;
+                                        @less_iaicolorscheme_button_large_text_hover: @button_text_color_hover;
+                                        
+                                        @less_button_small: @secondary_color;
+                                        @less_button_small_hover: @primary_color;
+                                        @less_button_medium: @secondary_color;
+                                        @less_button_medium_hover: @primary_color;
+                                        @less_button_large: @secondary_color;
+                                        @less_button_large_hover: @primary_color;
+                                        @less_button_small_color: @secondary_color;
+                                        @less_button_small_color_hover: @primary_color;
+                                        @less_button_medium_color: @secondary_color;
+                                        @less_button_medium_color_hover: @primary_color;
+                                        @less_button_large_color: @secondary_color;
+                                        @less_button_large_color_hover: @primary_color;
                                     </pre>
                                 </div>
                             </div>
