@@ -300,6 +300,9 @@
         .instruction{
             display: block;
         }
+        .instruction.active{
+            color: red;
+        }
     </style>
 
     
@@ -567,8 +570,11 @@
 //                }
 
             $(document).on('click', '.instruction', function(e) {
+                $('.instruction').removeClass('active');
+                $(this).addClass('active');
                 e.preventDefault();
                 loadData(null, $(this).data('index'));
+                return false;
             })
            
 
