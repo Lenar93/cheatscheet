@@ -61,7 +61,7 @@
                         <div class="maincont_left">
                             <small>01</small>
                             <label>Dodaj nową sekcję</label>
-                            <button class="btn opis2"><img src="img/Screenshot_12.png"></button>
+                            <button class="main_btn opis2">Dodaj sekcję</button>
                         </div>
                         <div class="maincont">
                             <small>02</small>
@@ -72,7 +72,7 @@
                         <div class="maincont_right">
                             <div class="maincont_right_sub">
                                 <small>03</small>
-                                <button class="btn gen" data-clipboard-action="copy" data-clipboard-target="#copycat">Generuj instrukcję</button>
+                                <button class="btn gen main_btn" data-clipboard-action="copy" data-clipboard-target="#copycat">Generuj instrukcję</button>
                                 <div class="status2 status_layout"></div>
                                 <textarea class="global_code" id="copycat"></textarea>
                                 <br>
@@ -127,6 +127,10 @@
     </div>
 
     <style>
+         a, button {
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+        }
         .src1 {
             display: none;
         }
@@ -146,10 +150,17 @@
         }
 
         small {
-            display: block;
+            display: inline-block;
             font-weight: bold;
-            font-size: 26px;
-            margin-bottom: 15px;
+            font-size: 28px;
+            margin: 15px 0;
+            background: #d2d2d2;
+            border-radius: 50%;
+            width: 60px;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            color: #fff;
         }
 
         div,
@@ -160,31 +171,19 @@
         }
 
         input,
-        textarea {
-            min-height: 30px;
+        textarea {    
+            min-height: 40px;
             font-size: 12px;
-            padding: 5px;
+            padding: 5px 10px;
             background: #eee;
+            border-radius: 5px;
+            border: 1px solid #d2d2d2;
         }
 
         .global_code {
             width: 100%;
             height: 300px;
             display: none;
-        }
-
-        .gen {
-            font-size: 20px;
-            background: #f00;
-            color: #fff;
-            border: 1px solid #f00;
-
-
-        }
-
-        .gen:hover {
-            background: transparent;
-            color: #000;
         }
 
         .content_wrapper {
@@ -205,7 +204,9 @@
             flex-grow: 1;
             display: none;
         }
-
+        .main_section:hover small {
+            box-shadow: 0 5px 10px #355ccc21;
+        }
         .maincont_right {
             padding-left: 50px;
             display: inline-block;
@@ -233,15 +234,47 @@
             margin-bottom: 10px;
         }
 
+        .main_btn {
+            color: #fff;
+            background: #355ccc;
+            border: 1px solid #355ccc;
+            border-radius: 10px;
+            padding: .5em 4em;
+            font-size: 18px;
+            display: block;
+            margin-top: 50px;
+        }
+        .main_btn:hover {
+            color: #355ccc;
+            background: none;
+        }
         h4 {
             margin: 15px 0 5px;
         }
 
         section {
-            border: 2px dashed #eee;
+            border: 2px solid #eee;
             padding: 20px;
             margin-bottom: 10px;
             position: relative;
+            border-radius: 10px;
+        }
+
+        .del_section {
+            background: #e44f4f;
+            color: #fff;
+            border: 1px solid #e44f4f;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 5px 15px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 3px;
+        }
+        .del_section:hover {
+            background: none;
+            color: #e44f4f;
         }
 
         .btn_small {
@@ -341,7 +374,7 @@
 
             $('.opis2').click(function() {
                 if (check()) {
-                    $('.contener').append("<section class='section_desc' data-name='opis2' data-elements='src1,label,opis,link' data-num='" + global_cont + "'>" + global_array['opis2_section'] + "<button class='btn_small' data-num='" + global_cont + "'>USUŃ SEKCJE</button></section");
+                    $('.contener').append("<section class='section_desc' data-name='opis2' data-elements='src1,label,opis,link' data-num='" + global_cont + "'>" + global_array['opis2_section'] + "<button class='del_section btn_small' data-num='" + global_cont + "'>X</button></section");
 
                     $('section[data-num="' + global_cont + '"').find('.btn_small').on('click', function() {
                         var num = $(this).data('num');
