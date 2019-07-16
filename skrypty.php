@@ -63,44 +63,22 @@
                                 </div>
                                 <div class="card-body">
                                     <pre class="brush:js">
-                                        $.fn.setHeight = function (options) {
-                                            function getNumCol(dataColumn){
-                                                var regex = new RegExp(app_shop.vars.view + ':\\d');
-                                                var currBreakpoint = dataColumn.match(regex)[0].split(':')[1];
-                                                return parseInt(currBreakpoint)
+                                        $.fn.setHeight = function (container) {
+                                            var numCol = Math.round(container.outerWidth() / container.children().outerWidth()),
+                                                numChild = container.children().length;
+                                            for (var i = 0; i < numChild; i += numCol) {
+                                                container.children().slice(i, i + numCol).find(this).maxHeight();
                                             }
-                                            var settings = $.extend({
-                                                elementClass: '.product-name',
-                                            }, options);
-                                            return this.each(function () {
-                                                $this = $(this);
-                                                var numCol = 4, separate = false;
-                                                var dataColumn = $this.attr('data-column');
-                                                var $elements = $this.find('> *');
-
-                                                //zwaracanie ilości w wierszu
-                                                if (dataColumn || dataColumn != ''){
-                                                    numCol = getNumCol(dataColumn);
-                                                }
-
-                                                if($this.find('.separator').length){
-                                                    separate = true;
-                                                }
-                                                //w przypadku separatora dodanie 1
-                                                if(separate){
-                                                    numCol++;
-                                                }
-                                                $elements.find(settings.elementClass).height('auto');
-                                                for (var i = 0, len = $elements.length; i < len; i += numCol) {
-                                                    $elements.slice(i, i + numCol).find(settings.elementClass).maxHeight();
-                                                }
-                                            });
                                         }
-                                        
                                         //wykorzystanie
-                                        app_shop.run(function(){
-                                            $('#search').setHeight({elementClass:'.product-name'});
-                                        },'all','#search');
+                                        //Odpalanie na wszystkich hotspotach
+                                        $('.main_hotspot').each(function() {
+                                            var _this = $(this);
+                                            _this.find('.product-name').setHeight(_this.find('.products_wrapper'));
+                                        });
+
+                                        //search
+                                        $('#search .product-name').setHeight($('#search'));
                                     </pre>
                                 </div>
                             </div>
@@ -124,32 +102,50 @@
                             <!-- Default Card Example -->
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    Default Card Example
+                                    Aktualizacja koszyka Fashion/RWD
                                 </div>
                                 <div class="card-body">
                                     <pre class="brush:js">
-                                    This card uses Bootstrap's default styling with
-                                    no utility classes added. Global styles are the only
-                                    things modifying the look and feel
-                                    of this default card example.
+                                    //Aktualizacja koszyka na Fashion:
+                                    var updateBasket = function () {
+                                      $.getJSON('/ajax/basket.php',function(json){
+                                          $('#menu_basket strong').html(json.basket.worth_formatted);
+
+                                          if($('#menu_basket .badge').length && json.basket.productsCounter > 0) {
+                                              $('#menu_basket .badge').html(json.basket.productsCounter);
+                                          } else if(json.basket.productsCounter > 0) {
+                                              $('#menu_basket > a').append('<span class="badge badge-important visible-phone">' + json.basket.productsCounter + '</span>');
+                                          } else {
+                                              $('#menu_basket .badge').remove()
+                                          }
+                                      });
+                                    }
+                                    /*Funkcja do aktualizacji koszyka pod standardową strukturę
+                                    https://dg.iai-shop.com/design-componentsettings.php?component=104023&design=10336*/
+
+                                    var updateBasket = function () {
+                                      $.getJSON('/ajax/basket.php',function(json){
+                                          $('#menu_basket strong').html(json.basket.worth_formatted);
+
+                                          if($('.basket_count_normal').length && json.basket.productsCounter > 0) {
+                                              $('.basket_count_normal').html(json.basket.productsCounter + ' ' + products_unit)
+                                          } else if(json.basket.productsCounter > 0) {
+                                              $('.basket_label_normal').after('<span class="basket_count_normal">' + json.basket.productsCounter + products_unit + '</span>');
+                                          } else {
+                                              $('.basket_count_normal').remove()
+                                          }
+                                          if($('#menu_basket .badge').length && json.basket.productsCounter > 0) {
+                                              $('#menu_basket .badge').html(json.basket.productsCounter);
+                                          } else if(json.basket.productsCounter > 0) {
+                                              $('#menu_basket > a').append('<span class="badge badge-important visible-phone">' + json.basket.productsCounter + '</span>');
+                                          } else {
+                                              $('#menu_basket .badge').remove()
+                                          }
+                                      });
+                                    }
                                     </pre>
                                 </div>
                             </div>
-
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    Default Card Example
-                                </div>
-                                <div class="card-body">
-                                    <pre class="brush:css">
-                                    This card uses Bootstrap's default styling 
-                                    with no utility classes added. Global 
-                                    styles are the only things modifying the look 
-                                    and feel of this default card example.
-                                    </pre>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>

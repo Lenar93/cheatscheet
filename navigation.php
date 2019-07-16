@@ -58,6 +58,18 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="additional_files.php">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pliki</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="additionals_vscode.php">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Dodatki VS Code</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="generator.php">
           <i class="fas fa-fw fa-folder"></i>
           <span>Generator instrukcji</span>

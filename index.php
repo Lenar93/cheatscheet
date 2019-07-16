@@ -92,6 +92,7 @@
                                             {
                                                 width: 6px;
                                                 background-color: @bg_color;
+                                                height:6px;
                                             }
                                             &::-webkit-scrollbar-thumb
                                             {
@@ -113,6 +114,66 @@
                                         @small_mobile: ~"only screen and (max-width: 500px)";
                                         @laptop: ~"only screen and (max-width: 1200px)";
                                         @desktop: ~"only screen and (max-width: 1500px)";
+                                        
+                                        /* nowy standard */
+                                        @small-mobile: ~"only screen and (max-width: 500px)";
+                                        @mobile: ~"only screen and (max-width: 757px)";
+                                        @tablet: ~"only screen and (min-width: 757px)";
+                                        @laptop: ~"only screen and (max-width: 979px)";
+                                        @desktop: ~"only screen and (max-width: 1200px)";
+                                    </pre>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    Stylowanie IAI Accounts + cookies
+                                </div>
+                                <div class="card-body">
+                                    <pre class="brush:css">
+                                        #iai-accounts_toplayer p a {
+                                            color: @less_primary_color !important; 
+                                            text-decoration: underline !important; 
+                                            &:hover {
+                                                text-decoration: none !important; 
+                                                color: @less_text_color !important;
+                                            }
+                                        }
+                                        .iai-accounts_alter_button {
+                                            color: @less_primary_color !important; 
+                                            text-decoration: underline !important; 
+                                            &:hover {
+                                                text-decoration: none !important; 
+                                                color: @less_text_color !important;
+                                            }
+                                        }
+                                        #accept_button {
+                                            .less_button_small_css3(); 
+                                            font-size: 13px; 
+                                            &:hover {
+                                                .less_button_small_css3_hover(); 
+                                                font-size: 13px}
+                                            }
+                                        /*Stylowanie Cookies z kolorowym tłem:*/
+                                        #ck_dsclr {
+                                            background: @less_primary_color !important;    
+                                            border-bottom: 1px solid @less_primary_color !important;    
+                                            border-top: 1px solid @less_primary_color !important;
+                                        }
+                                        #ck_dsclr #ck_dsclr_sub {
+                                            color: #fff !important;
+                                        }
+                                        #ck_dsclr #ckdsclmrshtdwn {
+                                            background: #fff !important; 
+                                            font-weight: normal; 
+                                            color: @less_primary_color !important;
+                                        }
+                                        div#ck_dsclr a {
+                                            color: #fff !important;  
+                                            font-weight: bold; 
+                                            text-decoration: underline !important;   
+                                            letter-spacing: 0.02em;
+                                        }
                                     </pre>
                                 </div>
                             </div>
@@ -158,6 +219,7 @@
                                         @less_link_color: @less_iaicolorscheme_background_link_color;
                                         @less_link_color_hover: @less_iaicolorscheme_background_link_color_hover;
                                         @less_warning_color: @less_iaicolorscheme_warning_color;
+                                        @less_border_shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.05);
                                         @less_iaicolorscheme_background_color: #ffffff;
                                         @less_iaicolorscheme_background_link_color: @text_color;
                                         @less_iaicolorscheme_background_link_color_hover: @primary_color;
@@ -214,6 +276,63 @@
                                         @less_button_medium_color_hover: @primary_color;
                                         @less_button_large_color: @secondary_color;
                                         @less_button_large_color_hover: @primary_color;
+                                    </pre>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    Stylowanie alertów
+                                </div>
+                                <div class="card-body">
+                                    <pre class="brush:css">
+                                        .less_info_template(@background, @color, @icon){
+                                         border: 1px solid transparent;
+                                         color: @color;
+                                         font-size: 13px;
+                                         padding: 22px 65px !important;
+                                         margin-bottom: 10px !important;
+                                         text-align: center;
+                                         background-color: @background;
+                                         position: relative;
+
+                                         &::before{
+                                             content: @icon;
+                                             font-family: fontawesome;
+                                             font-size: 2em;
+                                             position: absolute;
+                                             left: 23px;
+                                             top: 50%;
+                                             transform: translateY(-50%);
+                                         }
+                                         h3{
+                                             color: inherit;
+                                         }
+
+                                         a{
+                                             color: inherit;
+                                             text-decoration: underline;
+                                             &:hover{
+                                                 text-decoration: none;
+                                             }
+                                         }
+                                        }
+
+                                        .less_info {
+                                         .less_info_template(@less_info_color, #fff, '\F05A');
+                                        }
+
+                                        .less_warning {
+                                         .less_info_template(@less_warning_color, #fff, '\F06A');
+                                        }
+
+                                        .less_error {
+                                         .less_info_template(@less_danger_color, #fff, '\F057');
+                                        }
+
+                                        .less_success{
+                                         .less_info_template(@less_success_color, #fff, '\F058');
+                                        }
                                     </pre>
                                 </div>
                             </div>
