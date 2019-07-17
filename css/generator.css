@@ -1,0 +1,339 @@
+html {
+    scroll-behavior: smooth;
+}
+#wrapper #content-wrapper{
+    overflow: unset;
+}
+a, button {
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+.src1 {
+    display: none;
+}
+
+.target {
+    display: block;
+    width: 100% !important;
+    height: 200px !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #eee;
+    position: relative;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+
+.target:before {
+    content: 'Wgraj zdjęcie sekcji';
+    letter-spacing: 0.04em;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.target.active {
+    box-shadow: inset 0 0 30px rgba(199, 199, 199, 0.33);
+}
+.target.pasted:before {
+    content: '';
+}
+
+small {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 28px;
+    margin: 15px 0;
+    background: #d2d2d2;
+    border-radius: 50%;
+    width: 60px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+}
+
+div,
+input,
+textarea,
+h4 {
+    display: block;
+}
+
+input,
+textarea {    
+    min-height: 40px;
+    font-size: 12px;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 5px;
+    border: 1px solid #d2d2d2;
+    outline: 0;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+
+input:focus,
+textarea:focus {   
+    border-color: #888;
+}
+
+#content-wrapper h1 span {
+    font-size: 0.3em;
+}
+.global_code {
+    width: 100%;
+    height: 300px;
+    display: none;
+}
+
+.content_wrapper {
+    display: flex;
+    
+}
+
+.maincont_left {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 100%;
+    position: sticky;
+    top: 30px;
+}
+
+.maincont {
+    display: inline-block;
+    vertical-align: top;
+    flex-grow: 1;
+    display: none;
+    max-width:700px;
+}
+.main_section:hover small {
+    box-shadow: 0 5px 10px #355ccc21;
+}
+.maincont_right {
+    padding-left: 50px;
+    display: inline-block;
+    vertical-align: top;
+    flex-grow: 1;
+    height: 100%;
+    display: none;
+    position: sticky;
+    top: 30px;
+}
+
+.maincont_right_sub {
+    overflow: auto;
+}
+
+label {
+    margin: 0 0 5px;
+    display: block;
+    /*font-size: 11px;*/
+}
+
+.btn img {
+    width: 250px;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.main_btn {
+    color: #fff;
+    background: #355ccc;
+    border: 1px solid #355ccc;
+    border-radius: 10px;
+    padding: .5em 1em;
+    font-size: 18px;
+    display: block;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+}
+.main_btn:last-child{
+    margin-top: 20px;
+}
+.main_btn:hover {
+    color: #355ccc;
+    background: none;
+}
+h4 {
+    margin: 15px 0 5px;
+}
+
+section {
+    border: 2px solid #eee;
+    padding: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.del_section {
+    background: #e44f4f;
+    color: #fff;
+    border: 1px solid #e44f4f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 3px;
+}
+.del_section:hover {
+    background: none;
+    color: #e44f4f;
+}
+
+.btn_small {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.dir {
+    margin-bottom: 30px;
+    width: 260px;
+}
+
+section input,
+section textarea {
+    width: 100%;
+}
+
+section textarea {
+    height: 200px;
+}
+
+section img {
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+.dirlink {
+    display: none;
+}
+
+.status_layout {
+    background: #3ba009;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px;
+    margin-right: 10px;
+    float: left;
+    display: none;
+}
+
+.status2 {
+    display: none !important;
+    float: none;
+    width: 90%;
+    text-align: center;
+}
+
+.new {
+    color: #ff0000;
+}
+.instruction {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--secondary);
+    border-left: 3px solid #d2d2d2;
+    padding: 0 15px;
+}
+.instruction.active{
+    border-color: var(--blue);
+}
+.instruction_wrapper {
+    padding: 0 15px;
+    margin: 10px 0;
+}
+.instruction_wrapper div {
+    opacity: 0;
+    visibility: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+.instruction_wrapper:hover .instruction {
+    border-color: var(--blue);
+    text-decoration: none;
+}
+.instruction_wrapper:hover div {
+    opacity: 1;
+    visibility: visible;
+}
+.create_date {
+    font-size: 0.7em;
+    padding: 2px 5px;
+    display: block;
+}
+.modyfication_date {
+    color: var(--primary);
+    font-size: 0.8em;
+    display: block;
+    padding: 2px 5px;
+    font-weight: bold;
+}
+[data-notify="container"]{
+    max-width: 200px;
+}
+.settings_wrapper{
+    background: #375dce;
+    position: fixed;
+    right: -292px;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 20px;
+    width: 292px;
+    transition: right 0.3s ease;
+}
+.open_settings{
+    position: absolute;
+    top: 50%;
+    right:100%;
+    background: #375dce;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 0;
+    padding: 10px;
+    font-size: 1.5em;
+    color: #fff;
+}
+.open_settings:focus{
+    outline: 0;
+}
+.settings_wrapper.open{
+    right:0;
+    transition: right 0.3s ease;
+}
+.open_settings:hover{
+    color: #eee;
+}
+.settings_list{
+    list-style-type: none;
+}
+.settings_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.settings_wrapper_sub{
+    flex-grow: 1;
+    overflow: auto;
+    margin-bottom:10px;
+}
+.settings_button_wrapper > button{
+    width:100%;
+}
