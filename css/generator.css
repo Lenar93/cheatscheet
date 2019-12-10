@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    
 }
 #wrapper #content-wrapper{
     overflow: unset;
